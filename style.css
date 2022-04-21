@@ -2,6 +2,27 @@
     box-sizing: border-box;
 }
 
-#playArea {
+html, body {
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+body {
     display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+
+#playArea {
+    flex: auto;
+    display: flex;
+    min-width: 40%;
+    aspect-ratio: 1;
+    border: 5px solid white;
+}
+
+.container {
+    flex-shrink: 0;
 }

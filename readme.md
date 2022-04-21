@@ -7,3 +7,5 @@ TODO:
 
 
 FIXME:
+
+- play area starts being longer than it is wide if the screen gets narrow

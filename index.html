@@ -10,8 +10,18 @@
     <body>
         <h1>Etch-a-Sketch</h1>
         <h3>Move your mouse over the boxes to draw!</h3>
-        <!-- Put field with a button to select the grid size here -->
+        <div class="container">
+            <form id="sizeInput">
+                <label for="size">Grid size (max 100)</label>
+                <input type="number" name="size" min="1" max="100" required>
+            </form>
+        </div>
         <div id="playArea"></div>
-        <!-- Put drawing options here -->
+        <div class="container">
+            <form>
+                <label for="modeSelect">Select drawing mode</label>
+                <input type="radio" name="modeSelect">
+            </form>
+        </div>
     </body>
 </html>
