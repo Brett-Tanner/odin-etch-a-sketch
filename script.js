@@ -2,10 +2,11 @@
 const sizeInput = document.querySelector("#sizeInput");
 let gridSize;
 
-console.log(sizeInput.elements);
+console.log(sizeInput);
 
 function makeGrid(event) {
+    event.preventDefault();
     console.log(event);
 };
 
-sizeInput.elements.size.addEventListener("submit", makeGrid);
+sizeInput.addEventListener("submit", makeGrid);
