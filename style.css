@@ -14,13 +14,19 @@ body {
     align-items: center;
 }
 
-
 #playArea {
     flex: auto;
     display: flex;
     min-width: 40%;
     aspect-ratio: 1;
     border: 5px solid white;
+}
+
+#playArea div {
+    flex-shrink: 0;
+    flex-flow: row wrap;
+    aspect-ratio: 1;
+    border: 1px solid white;
 }
 
 .container {
