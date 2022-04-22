@@ -17,14 +17,15 @@ body {
 #playArea {
     flex: auto;
     display: flex;
+    flex-flow: row wrap;
     min-width: 40%;
     aspect-ratio: 1;
     border: 5px solid white;
 }
 
 #playArea div {
-    flex-shrink: 0;
-    flex-flow: row wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
     aspect-ratio: 1;
     border: 1px solid white;
 }
