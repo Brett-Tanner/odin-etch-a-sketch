@@ -3,6 +3,9 @@ const inputForm = document.querySelector("#inputForm");
 const sizeInput = document.querySelector("#sizeInput");
 const playArea = document.querySelector("#playArea");
 
+// make the grid when size is submitted
+inputForm.addEventListener("submit", makeGrid);
+
 function makeGrid(event) {
     // stop form from refreshing the page
     event.preventDefault();
@@ -23,31 +26,30 @@ function makeGrid(event) {
     }
     // add color changing to these new divs
     const coloredSquares = document.querySelectorAll(".coloredSquares");
-
-    function changeColor(event) {
-        let randomRed = Math.floor(Math.random() * 255);
-        console.log(randomRed);
-        let randomGreen = Math.floor(Math.random() * 255);
-        console.log(randomGreen);
-        let randomBlue = Math.floor(Math.random() * 255);
-        console.log(randomBlue);
-        event.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
-    };
-
     coloredSquares.forEach(element => {
         element.addEventListener("mouseenter", changeColor);
     });
-
-    function fadeOut(event) {
-
-    };
-
     coloredSquares.forEach(element => {
         element.addEventListener("mouseleave", fadeOut);
     });
-    
 };
 
-inputForm.addEventListener("submit", makeGrid);
+// change div background color
+function changeColor(event) {
+    let randomRed = Math.floor(Math.random() * 255);
+    let randomGreen = Math.floor(Math.random() * 255);
+    let randomBlue = Math.floor(Math.random() * 255);        
+    event.target.style.background = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+};
 
-
+// fade out background after mouse leaves
+function fadeOut(event) {
+    let opacity = 1;
+    let timer = setInterval(function() {
+        if (opacity <= 0.7) {
+            clearInterval(timer);
+        }
+        event.target.style.opacity = opacity;
+        opacity -= 0.05;
+    }, 30)
+};
