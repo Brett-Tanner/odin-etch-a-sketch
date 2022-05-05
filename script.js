@@ -12,15 +12,42 @@ function makeGrid(event) {
     }
     // get grid size from form
     const gridWidth = sizeInput.value;
-    const gridSize = gridWidth * gridWidth;
     // create divs
-    for (i = 0; i < gridSize; i++) {
+    for (i = 0, gridSize = gridWidth * gridWidth; i < gridSize; i++) {
         let div = document.createElement("div");
         // set basis of divs to have an even number per row
         divBasis = 100 / gridWidth;
         div.style.flexBasis = `${divBasis}%`;
+        div.setAttribute("class", "coloredSquares");
         playArea.appendChild(div);
     }
+    // add color changing to these new divs
+    const coloredSquares = document.querySelectorAll(".coloredSquares");
+
+    function changeColor(event) {
+        let randomRed = Math.floor(Math.random() * 255);
+        console.log(randomRed);
+        let randomGreen = Math.floor(Math.random() * 255);
+        console.log(randomGreen);
+        let randomBlue = Math.floor(Math.random() * 255);
+        console.log(randomBlue);
+        event.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+    };
+
+    coloredSquares.forEach(element => {
+        element.addEventListener("mouseenter", changeColor);
+    });
+
+    function fadeOut(event) {
+
+    };
+
+    coloredSquares.forEach(element => {
+        element.addEventListener("mouseleave", fadeOut);
+    });
+    
 };
 
 inputForm.addEventListener("submit", makeGrid);
+
+
