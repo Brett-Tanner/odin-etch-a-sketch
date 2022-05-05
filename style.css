@@ -29,6 +29,8 @@ body {
     max-width: 95vw;
     max-height: 95vh;
     margin: 20px 0px;
+    touch-action: none;
+    pointer-events: none;
 }
 
 #playArea div {
@@ -36,6 +38,8 @@ body {
     flex-shrink: 1;
     aspect-ratio: 1;
     border: .001px solid darkgrey;
+    touch-action: none;
+    pointer-events: all;
 }
 
 .blackspace {

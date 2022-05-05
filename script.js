@@ -34,6 +34,14 @@ function makeGrid(event) {
     coloredSquares.forEach(element => {
         element.addEventListener("mouseleave", fadeOut);
     });
+    // also add for touchscreens
+    coloredSquares.forEach(element => {
+        element.addEventListener("touchstart", changeColor);
+    });
+    coloredSquares.forEach(element => {
+        element.addEventListener("touchmove", touchColor);
+    });
+    
 };
 
 // change div background color
@@ -54,6 +62,27 @@ function fadeOut(event) {
         event.target.style.opacity = opacity;
         opacity -= 0.05;
     }, 50)
+};
+
+// touch function
+function touchColor(event) {
+    let square = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+    if (square.className === "coloredSquares") {
+        // set random color
+        let randomRed = Math.floor(Math.random() * 255);
+        let randomGreen = Math.floor(Math.random() * 255);
+        let randomBlue = Math.floor(Math.random() * 255);        
+        square.style.background = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+        // and fade
+        let opacity = 1;
+        let timer = setInterval(function() {
+        if (opacity <= 0.8) {
+            clearInterval(timer);
+        }
+        square.style.opacity = opacity;
+        opacity -= 0.05;
+    }, 50)
+    };
 };
 
 // reset the grid colors when clear canvas button is pressed
