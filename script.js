@@ -1,7 +1,9 @@
-// get grid size from input form
+// select necessary elements
 const inputForm = document.querySelector("#inputForm");
 const sizeInput = document.querySelector("#sizeInput");
 const playArea = document.querySelector("#playArea");
+const clearForm = document.querySelector("#clearForm");
+let coloredSquares = []; 
 
 // make the grid when size is submitted
 inputForm.addEventListener("submit", makeGrid);
@@ -25,7 +27,7 @@ function makeGrid(event) {
         playArea.appendChild(div);
     }
     // add color changing to these new divs
-    const coloredSquares = document.querySelectorAll(".coloredSquares");
+    coloredSquares = document.querySelectorAll(".coloredSquares");
     coloredSquares.forEach(element => {
         element.addEventListener("mouseenter", changeColor);
     });
@@ -53,3 +55,13 @@ function fadeOut(event) {
         opacity -= 0.05;
     }, 50)
 };
+
+// reset the grid colors when clear canvas button is pressed
+clearForm.addEventListener("click", () => {
+    if (coloredSquares.length === 0) {
+        return;
+    }
+    coloredSquares.forEach(element => {
+        element.style.background = "rgb(0, 0, 0)";
+    })
+})

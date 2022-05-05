@@ -16,6 +16,7 @@ body {
 
 .container {
     flex-shrink: 0;
+    margin: 20px 0px;
 }
 
 #playArea {
@@ -25,15 +26,16 @@ body {
     min-width: 40%;
     aspect-ratio: 1;
     border: 1px solid grey;
-    max-width: 90vw;
-    max-height: 90vh;
+    max-width: 95vw;
+    max-height: 95vh;
+    margin: 20px 0px;
 }
 
 #playArea div {
     flex-grow: 1;
     flex-shrink: 1;
     aspect-ratio: 1;
-    border: .25px solid grey;
+    border: .001px solid darkgrey;
 }
 
 .blackspace {
