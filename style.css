@@ -14,22 +14,28 @@ body {
     align-items: center;
 }
 
+.container {
+    flex-shrink: 0;
+}
+
 #playArea {
     flex: auto;
     display: flex;
     flex-flow: row wrap;
     min-width: 40%;
     aspect-ratio: 1;
-    border: 5px solid white;
+    border: 1px solid grey;
+    max-width: 90vw;
+    max-height: 90vh;
 }
 
 #playArea div {
     flex-grow: 1;
     flex-shrink: 1;
     aspect-ratio: 1;
-    border: 1px solid white;
+    border: .25px solid grey;
 }
 
-.container {
-    flex-shrink: 0;
+.blackspace {
+    flex: auto;
 }

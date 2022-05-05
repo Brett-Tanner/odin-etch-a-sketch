@@ -46,10 +46,10 @@ function changeColor(event) {
 function fadeOut(event) {
     let opacity = 1;
     let timer = setInterval(function() {
-        if (opacity <= 0.7) {
+        if (opacity <= 0.8) {
             clearInterval(timer);
         }
         event.target.style.opacity = opacity;
         opacity -= 0.05;
-    }, 30)
+    }, 50)
 };
